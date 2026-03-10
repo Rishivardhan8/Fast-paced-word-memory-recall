@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast-Paced Word Memory Recall</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- MENU -->
+    <div id="menu" class="screen active menu">
+      <button class="score-btn" onclick="showScores()">Top Scores</button>
+
+      <div class="title">Fast-Paced Word Memory Recall</div>
+
+      <select id="modeSelect">
+        <option value="lives">Lives Mode</option>
+        <option value="timer">Timer Mode</option>
+      </select>
+
+      <select id="livesSelect">
+        <option value="3">3 Lives</option>
+        <option value="5" selected>5 Lives</option>
+        <option value="7">7 Lives</option>
+        <option value="9">9 Lives</option>
+      </select>
+
+      <select id="timerSelect" style="display:none">
+        <option value="60">60 Seconds</option>
+        <option value="120" selected>120 Seconds</option>
+        <option value="240">240 Seconds</option>
+        <option value="300">300 Seconds</option>
+      </select>
+
+      <button class="start" onclick="game.start()">OK</button>
+    </div>
+
+    <!-- SCORE SCREEN -->
+    <div id="scores" class="screen score-screen">
+      <h2>Top 10 Scores</h2>
+      <ul id="scoreList"></ul>
+      <button class="back" onclick="backToMenu()">Back</button>
+    </div>
+
+    <!-- GAME -->
+    <div id="game" class="screen">
+      <div class="game-header">
+        <div class="stat">Score: <span id="score">0</span></div>
+        <div class="stat" id="modeUI"></div>
+      </div>
+
+      <div class="word-area">
+        <div id="word" class="word">...</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-seen" onclick="game.choose(true)">SEEN</button>
+        <button class="btn-new" onclick="game.choose(false)">NEW</button>
+      </div>
+    </div>
+
+    <!-- GAME OVER -->
+    <div id="over" class="screen over">
+      <div>Game Over</div>
+      <div class="score" id="finalScore">0</div>
+      <button class="start" onclick="location.reload()">Play Again</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
